@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Buchnat.LaptopsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91302715c85a546bd3f73a81845f7ea429864944")]
 [assembly: System.Reflection.AssemblyProductAttribute("Buchnat.LaptopsApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Buchnat.LaptopsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

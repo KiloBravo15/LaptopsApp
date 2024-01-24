@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Buchnat.LaptopsApp.DAOMock1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Buchnat.LaptopsApp", "..\LaptopAppConsole\Buchnat.LaptopsApp.csproj", "{D8E09816-DE5D-405A-8916-8A8472C3AE6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buchnat.LaptopsApp.DAOMock2", "..\Buchnat.LaptopsApp.DAOMock2\Buchnat.LaptopsApp.DAOMock2.csproj", "{D6F83617-213C-4007-8ABC-512B94F72E2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Buchnat.LaptopsApp.DAOMock2", "..\Buchnat.LaptopsApp.DAOMock2\Buchnat.LaptopsApp.DAOMock2.csproj", "{D6F83617-213C-4007-8ABC-512B94F72E2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buchnat.LaptopsApp.MVC", "..\Buchnat.LaptopsApp.MVC\Buchnat.LaptopsApp.MVC.csproj", "{10921139-DE12-47AE-BDD8-228B4A94BFD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{D6F83617-213C-4007-8ABC-512B94F72E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6F83617-213C-4007-8ABC-512B94F72E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6F83617-213C-4007-8ABC-512B94F72E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10921139-DE12-47AE-BDD8-228B4A94BFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10921139-DE12-47AE-BDD8-228B4A94BFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10921139-DE12-47AE-BDD8-228B4A94BFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10921139-DE12-47AE-BDD8-228B4A94BFD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
