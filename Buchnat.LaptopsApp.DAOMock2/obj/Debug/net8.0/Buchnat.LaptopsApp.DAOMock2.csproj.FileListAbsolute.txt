@@ -1,0 +1,17 @@
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.deps.json
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.dll
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.pdb
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.Core.dll
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.Interfaces.dll
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.Core.pdb
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\bin\Debug\net8.0\Buchnat.LaptopsApp.Interfaces.pdb
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.csproj.AssemblyReference.cache
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.GeneratedMSBuildEditorConfig.editorconfig
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.AssemblyInfoInputs.cache
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.AssemblyInfo.cs
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.csproj.CoreCompileInputs.cache
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.csproj.CopyComplete
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.dll
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\refint\Buchnat.LaptopsApp.DAOMock2.dll
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\Buchnat.LaptopsApp.DAOMock2.pdb
+D:\PWproject1\PWproject\Buchnat.LaptopsApp.DAOMock2\obj\Debug\net8.0\ref\Buchnat.LaptopsApp.DAOMock2.dll

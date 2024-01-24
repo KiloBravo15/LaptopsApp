@@ -1,0 +1,1 @@
+D:\PWproject\LaptopsAppMAUI\Buchnat.LaptopsApp.MAUI.csproj;x64

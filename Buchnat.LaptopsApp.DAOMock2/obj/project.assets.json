@@ -1,0 +1,119 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Buchnat.LaptopsApp.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Buchnat.LaptopsApp.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Buchnat.LaptopsApp.Core.dll": {}
+        }
+      },
+      "Buchnat.LaptopsApp.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Buchnat.LaptopsApp.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Buchnat.LaptopsApp.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Buchnat.LaptopsApp.Interfaces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Buchnat.LaptopsApp.Core/1.0.0": {
+      "type": "project",
+      "path": "../LaptopsApp.Core/Buchnat.LaptopsApp.Core.csproj",
+      "msbuildProject": "../LaptopsApp.Core/Buchnat.LaptopsApp.Core.csproj"
+    },
+    "Buchnat.LaptopsApp.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../LaptopsApp.Interfaces/Buchnat.LaptopsApp.Interfaces.csproj",
+      "msbuildProject": "../LaptopsApp.Interfaces/Buchnat.LaptopsApp.Interfaces.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Buchnat.LaptopsApp.Core >= 1.0.0",
+      "Buchnat.LaptopsApp.Interfaces >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Karolina\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\PWproject1\\PWproject\\Buchnat.LaptopsApp.DAOMock2\\Buchnat.LaptopsApp.DAOMock2.csproj",
+      "projectName": "Buchnat.LaptopsApp.DAOMock2",
+      "projectPath": "D:\\PWproject1\\PWproject\\Buchnat.LaptopsApp.DAOMock2\\Buchnat.LaptopsApp.DAOMock2.csproj",
+      "packagesPath": "C:\\Users\\Karolina\\.nuget\\packages\\",
+      "outputPath": "D:\\PWproject1\\PWproject\\Buchnat.LaptopsApp.DAOMock2\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Karolina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "D:\\PWproject1\\PWproject\\LaptopsApp.Core\\Buchnat.LaptopsApp.Core.csproj": {
+              "projectPath": "D:\\PWproject1\\PWproject\\LaptopsApp.Core\\Buchnat.LaptopsApp.Core.csproj"
+            },
+            "D:\\PWproject1\\PWproject\\LaptopsApp.Interfaces\\Buchnat.LaptopsApp.Interfaces.csproj": {
+              "projectPath": "D:\\PWproject1\\PWproject\\LaptopsApp.Interfaces\\Buchnat.LaptopsApp.Interfaces.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
