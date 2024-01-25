@@ -32,7 +32,7 @@ namespace Buchnat.LaptopsApp.DAOSQL
 
         IEnumerable<ILaptop> IDAO.GetAllLaptops()
         {
-            return Laptops.ToList().Cast<ILaptop>();
+            return Laptops.Select(aircraft => aircraft.ToILaptop(Producers.ToList()));
         }
 
         public IProducer CreateNewProducer(IProducer producer)
@@ -52,29 +52,37 @@ namespace Buchnat.LaptopsApp.DAOSQL
 
         public ILaptop CreateNewLaptop(ILaptop laptop)
         {
-            var entity = laptop as LaptopDBSQL;
-            if (entity != null)
+            laptop.Id = Guid.NewGuid();
+            Add(new LaptopDBSQL()
             {
-                this.Laptops.Add(entity);
-                this.SaveChanges();
-                return laptop;
-            }
-            throw new ArgumentException("Invalid laptop type.");
+                Id = laptop.Id,
+                Model = laptop.Model,
+                Processor = laptop.Processor,
+                RAM = laptop.RAM,
+                StorageInGB = laptop.StorageInGB,
+                ProducerId = laptop.Producer.Id.ToString() 
+            });
+
+            SaveChanges();
+            return laptop;
         }
 
-        public void UpdateLaptop(ILaptop laptop)
+
+        public void UpdateLaptop(ILaptop updatedLaptop)
         {
-            var entity = laptop as LaptopDBSQL;
-            if (entity != null)
+            var laptop = Laptops.FirstOrDefault(l => l.Id == updatedLaptop.Id);
+            if (laptop != null)
             {
-                this.Laptops.Update(entity);
-                this.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException("Invalid laptop type.");
+                laptop.Model = updatedLaptop.Model;
+                laptop.Processor = updatedLaptop.Processor;
+                laptop.RAM = updatedLaptop.RAM;
+                laptop.StorageInGB = updatedLaptop.StorageInGB;
+
+                Entry(laptop).CurrentValues.SetValues(laptop);
+                SaveChanges();
             }
         }
+
 
         public void UpdateProducer(IProducer updatedProducer)
         {

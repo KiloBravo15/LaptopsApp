@@ -6,8 +6,7 @@
 
 <h2 class="mb-3">Laptops List</h2>
 
-@if (Model != null && Model.Any())
-{
+
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
@@ -25,7 +24,7 @@
                     <td>@laptop.Id</td>
                     <td>@laptop.Model</td>
                     <td>@laptop.Processor</td>
-                    <td>@laptop.Producer.Name</td>
+                    <td>@laptop.Producer?.Name</td>
                     <td>
                         <a href="@Url.Action("Details", "Laptop", new { id = laptop.Id })" class="btn btn-info btn-sm">Details</a>
                         <a href="@Url.Action("Edit", "Laptop", new { id = laptop.Id })" class="btn btn-primary btn-sm">Edit</a>
@@ -35,10 +34,7 @@
             }
         </tbody>
     </table>
-}
-else
-{
-    <p>No laptops available.</p>
-}
+
+
 
 <a href="@Url.Action("Create", "Laptop")" class="btn btn-success">Create New</a>

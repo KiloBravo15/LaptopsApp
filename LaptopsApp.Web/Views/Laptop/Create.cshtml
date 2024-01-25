@@ -1,0 +1,74 @@
+﻿@model LaptopsApp.Web.Models.Laptop
+
+@{
+    ViewBag.Title = "Create Laptop";
+    Layout = "_Layout";
+}
+
+<h2>Create Laptop</h2>
+
+@using (Html.BeginForm("Create", "Laptop", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Producer Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProducerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ProducerId, new SelectList(ViewBag.Producers, "Value", "Text"), "Select Producer", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProducerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Model Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Processor Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Processor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Processor, new SelectList(Enum.GetValues(typeof(Buchnat.LaptopsApp.Core.ProcessorType))), "-- Select Processor --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Processor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- RAM Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.RAM, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RAM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RAM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Storage Field -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.StorageInGB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StorageInGB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StorageInGB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

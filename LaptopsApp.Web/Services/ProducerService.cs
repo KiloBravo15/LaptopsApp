@@ -35,7 +35,7 @@ namespace LaptopsApp.Web.Services
             _blc.CreateOrUpdateProducer(producerInterface);
         }
 
-        private Producer? ConvertProducerToModel(IProducer producer)
+        public static Producer? ConvertProducerToModel(IProducer producer)
         {
             return producer == null ? null : new Producer
             {
@@ -45,7 +45,7 @@ namespace LaptopsApp.Web.Services
             };
         }
 
-        private IProducer ConvertToInterface(Producer producer)
+        private static IProducer ConvertToInterface(Producer producer)
         {
             return producer == null ? null : new Producer
             {

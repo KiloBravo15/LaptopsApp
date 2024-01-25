@@ -51,7 +51,7 @@ namespace Buchnat.LaptopsApp.BLC
         }
         public void CreateOrUpdateLaptop(ILaptop laptop)
         {
-            if (laptop.Id == null)
+            if (laptop.Id == Guid.Empty)
             {
                 laptop.Id = Guid.NewGuid();
                 dao.CreateNewLaptop(laptop);

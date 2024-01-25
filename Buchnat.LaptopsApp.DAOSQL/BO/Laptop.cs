@@ -3,13 +3,14 @@ using Buchnat.LaptopsApp.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Buchnat.LaptopsApp.DAOSQL
 {
-    public class LaptopDBSQL
+    public class LaptopDBSQL: ILaptop
     {
         [Key]
         public Guid Id { get; set; }
@@ -18,6 +19,8 @@ namespace Buchnat.LaptopsApp.DAOSQL
         public ProcessorType Processor { get; set; }
         public int RAM { get; set; }
         public int StorageInGB { get; set; }
+        [NotMapped]
+        public IProducer Producer { get; set; }
 
         public ILaptop ToILaptop(List<ProducerDBSQL> producers)
         {

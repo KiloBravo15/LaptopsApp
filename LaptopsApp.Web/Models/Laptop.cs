@@ -20,5 +20,8 @@ namespace LaptopsApp.Web.Models
         public int RAM { get; set; }
 
         public int StorageInGB { get; set; }
+
+        [ForeignKey("Producer.Id")]
+        public Guid ProducerId { get; set; }
     }
 }

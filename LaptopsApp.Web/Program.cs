@@ -16,7 +16,7 @@ namespace LaptopsApp.Web
             builder.Services.AddScoped<DAOSQL>();
             var dataSource = builder.Configuration.GetValue<string>("ConnectionStrings:DataSource");
 
-            builder.Services.AddSingleton<BLC>(provider => new BLC(dataSource));
+            builder.Services.AddScoped<BLC>(provider => new BLC(dataSource));
 
             builder.Services.AddScoped<LaptopService>(provider => new LaptopService(provider.GetRequiredService<BLC>(), dataSource));
             builder.Services.AddScoped<ProducerService>(provider => new ProducerService(provider.GetRequiredService<BLC>(), dataSource));

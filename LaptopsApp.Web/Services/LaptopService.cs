@@ -15,12 +15,12 @@ namespace LaptopsApp.Web.Services
         }
         public IEnumerable<Laptop> GetAllLaptops()
         {
-            return _blc.GetLaptops() as IEnumerable<Laptop>;
+            return _blc.GetLaptops().Select(a => ConvertToModel(a));
         }
 
         public Laptop GetLaptopById(Guid id)
         {
-            return _blc.GetLaptopById(id) as Laptop;
+            return ConvertToModel(_blc.GetLaptopById(id));
         }
 
 
@@ -34,6 +34,19 @@ namespace LaptopsApp.Web.Services
             _blc.CreateOrUpdateLaptop(laptop);
         }
 
-      
+        private Laptop? ConvertToModel(ILaptop laptop)
+        {
+            return laptop == null ? null : new Laptop
+            {
+                Id = laptop.Id,
+                Producer = ProducerService.ConvertProducerToModel(laptop.Producer), // Assuming you have a similar conversion method for Producer
+                Model = laptop.Model,
+                Processor = laptop.Processor,
+                RAM = laptop.RAM,
+                StorageInGB = laptop.StorageInGB
+            };
+        }
+
+
     }
 }
