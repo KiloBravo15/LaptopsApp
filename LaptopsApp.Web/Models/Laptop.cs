@@ -11,17 +11,14 @@ namespace LaptopsApp.Web.Models
         [Key]
         public Guid Id { get; set; }
 
-        public IProducer Producer { get; set; }
+        public IProducer? Producer { get; set; }
 
-        [Required]
         public string Model { get; set; }
 
         public ProcessorType Processor { get; set; }
 
-        [Required]
         public int RAM { get; set; }
 
-        [Required]
         public int StorageInGB { get; set; }
     }
 }
