@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LaptopsApp.Web.Models.Producer>
+
+@{
+    Layout = "_Layout";
+}
+
+<h2 class="mb-3">Producers List</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>GUID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producer in Model)
+        {
+            <tr>
+                <td>@producer.Id</td>
+                <td>@producer.Name</td>
+                <td>@producer.Description</td>
+                <td>
+                    <a href="@Url.Action("Details", "Producer", new { id = producer.Id })" class="btn btn-info btn-sm">Details</a>
+                    <a href="@Url.Action("Edit", "Producer", new { id = producer.Id })" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", "Producer", new { id = producer.Id })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Producer")" class="btn btn-success">Create New</a>

@@ -10,7 +10,7 @@ namespace Buchnat.LaptopsApp.DAOMock1.BO
 {
     public class Laptop : ILaptop
     {
-        public int Id {  get; set; }
+        public Guid Id {  get; set; }
         public IProducer Producer { get; set; }
         public string Model { get; set; }
         public ProcessorType Processor { get; set; }

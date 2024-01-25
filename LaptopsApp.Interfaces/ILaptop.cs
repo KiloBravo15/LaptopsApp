@@ -9,7 +9,7 @@ namespace Buchnat.LaptopsApp.Interfaces
 {
     public interface ILaptop
     {
-        int Id { get; set; }
+        Guid Id { get; set; }
         IProducer Producer { get; set; }
         string Model { get; set; }
         ProcessorType Processor { get; set; }

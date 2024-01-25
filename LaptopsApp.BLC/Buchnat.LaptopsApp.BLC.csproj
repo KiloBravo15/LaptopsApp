@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Buchnat.LaptopsApp.DAOSQL\Buchnat.LaptopsApp.DAOSQL.csproj" />
     <ProjectReference Include="..\LaptopsApp.Core\Buchnat.LaptopsApp.Core.csproj" />
     <ProjectReference Include="..\LaptopsApp.Interfaces\Buchnat.LaptopsApp.Interfaces.csproj" />
   </ItemGroup>

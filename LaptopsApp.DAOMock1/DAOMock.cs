@@ -40,9 +40,19 @@ namespace Buchnat.LaptopsApp.DAOMock1
             return new BO.Laptop();
         }
 
+        public ILaptop CreateNewLaptop(ILaptop laptop)
+        {
+            throw new NotImplementedException();
+        }
+
         public IProducer CreateNewProducer()
         {
             return new BO.Producer();
+        }
+
+        public IProducer CreateNewProducer(IProducer producer)
+        {
+            throw new NotImplementedException();
         }
 
         //       public void DeleteLaptop(int id)
@@ -63,6 +73,26 @@ namespace Buchnat.LaptopsApp.DAOMock1
         public IEnumerable<IProducer> GetAllProducers()
         {
             return producers;
+        }
+
+        public void RemoveLaptop(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveProducer(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateLaptop(ILaptop laptop)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProducer(IProducer producer)
+        {
+            throw new NotImplementedException();
         }
 
         //    public ILaptop GetLaptopById(int id)
