@@ -37,15 +37,18 @@ namespace Buchnat.LaptopsApp.DAOSQL
 
         public IProducer CreateNewProducer(IProducer producer)
         {
-            var entity = producer as ProducerDBSQL;
-            if (entity != null)
+            producer.Id = Guid.NewGuid(); 
+            Add(new ProducerDBSQL()
             {
-                this.Producers.Add(entity);
-                this.SaveChanges();
-                return producer;
-            }
-            throw new ArgumentException("Invalid producer type.");
+                Id = producer.Id,
+                Name = producer.Name,
+                Description = producer.Description
+            });
+
+            SaveChanges();
+            return producer;
         }
+
 
         public ILaptop CreateNewLaptop(ILaptop laptop)
         {
@@ -73,19 +76,19 @@ namespace Buchnat.LaptopsApp.DAOSQL
             }
         }
 
-        public void UpdateProducer(IProducer producer)
+        public void UpdateProducer(IProducer updatedProducer)
         {
-            var entity = producer as ProducerDBSQL;
-            if (entity != null)
+            var producer = Producers.FirstOrDefault(p => p.Id == updatedProducer.Id);
+            if (producer != null)
             {
-                this.Producers.Update(entity);
-                this.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException("Invalid producer type.");
+                producer.Name = updatedProducer.Name;
+                producer.Description = updatedProducer.Description;
+
+                Entry(producer).CurrentValues.SetValues(producer);
+                SaveChanges();
             }
         }
+
 
         void IDAO.RemoveLaptop(Guid id)
         {
@@ -117,12 +120,12 @@ namespace Buchnat.LaptopsApp.DAOSQL
 
         public ILaptop GetLaptop(Guid id)
         {
-            throw new NotImplementedException();
+            return (ILaptop)Laptops.Where(laptop => laptop.Id.Equals(id)).FirstOrDefault();
         }
 
         public IProducer GetProducer(Guid id)
         {
-            throw new NotImplementedException();
+            return (IProducer)Producers.Where(producer => producer.Id.Equals(id)).FirstOrDefault();
         }
     }
 }

@@ -64,7 +64,7 @@ namespace Buchnat.LaptopsApp.BLC
 
         public void CreateOrUpdateProducer(IProducer producer)
         {
-            if (producer.Id == null)
+            if (producer.Id == Guid.Empty)
             {
                 producer.Id = Guid.NewGuid();
                 dao.CreateNewProducer(producer);

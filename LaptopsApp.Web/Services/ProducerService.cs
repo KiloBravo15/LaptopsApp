@@ -40,18 +40,18 @@ namespace LaptopsApp.Web.Services
             return producer == null ? null : new Producer
             {
                 Id = producer.Id,
-                Name = producer.Name
-                // Add other fields as necessary
+                Name = producer.Name,
+                Description = producer.Description
             };
         }
 
         private IProducer ConvertToInterface(Producer producer)
         {
-            return producer == null ? null : new Producer // Replace with actual implementation of IProducer
+            return producer == null ? null : new Producer
             {
                 Id = producer.Id,
-                Name = producer.Name
-                // Add other fields as necessary
+                Name = producer.Name,
+                Description = producer.Description
             };
         }
     }
