@@ -57,6 +57,14 @@ namespace Buchnat.LaptopsApp
             }
         }
 
+        private void ProducerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count != 0)
+            {
+                ChangeSelectedProducer((ViewModels.ProducerViewModel)e.AddedItems[0]);
+            }
+        }
+
         private void EditLaptop(object sender, RoutedEventArgs e)
         {
             if (selectedLaptop != null)
@@ -72,7 +80,7 @@ namespace Buchnat.LaptopsApp
                     {
                         Id = selectedLaptop.LaptopGUID,
                         Model = laptopEditDialog.LaptopModel,
-                        Producer = blc.GetProducer(new Guid(laptopEditDialog.LaptopProducer)),
+                        Producer = blc.GetProducer(laptopEditDialog.LaptopProducer),
                         Processor = laptopEditDialog.LaptopProcessor,
                         RAM = laptopEditDialog.LaptopRAM,
                         StorageInGB = laptopEditDialog.LaptopStorageInGB
@@ -82,11 +90,13 @@ namespace Buchnat.LaptopsApp
                     ChangeSelectedLaptop(null);
                 }
             }
+
             else
             {
                 MessageBox.Show("Laptop is not selected!");
             }
         }
+
 
         private void RemoveLaptop(object sender, RoutedEventArgs e)
         {
@@ -114,9 +124,8 @@ namespace Buchnat.LaptopsApp
                 {
                     laptop = new Models.Laptop()
                     {
-                        Id = selectedLaptop.LaptopGUID,
                         Model = laptopInputDialog.LaptopModel,
-                        Producer = blc.GetProducer(new Guid(laptopInputDialog.LaptopProducer)),
+                        Producer = blc.GetProducer(laptopInputDialog.LaptopProducer),
                         Processor = laptopInputDialog.LaptopProcessor,
                         RAM = laptopInputDialog.LaptopRAM,
                         StorageInGB = laptopInputDialog.LaptopStorageInGB

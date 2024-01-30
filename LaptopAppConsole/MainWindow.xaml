@@ -42,19 +42,19 @@
                 </StackPanel>
             </StackPanel>
             <!-- CRUD Buttons and Info Panel for Laptops -->
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <Button Margin="0,5,0,0" Click="AddLaptop" Height="50" Width="100">
-                        Add
-                    </Button>
-                    <Button Margin="0,5,0,0" Click="EditLaptop" Height="50" Width="100">
-                        Edit
-                    </Button>
-                    <Button Margin="0,5,0,0" Click="RemoveLaptop" Height="50" Width="100">
-                        Remove
-                    </Button>
-                </StackPanel>
-                <StackPanel Margin="5">
+            <StackPanel Orientation="Vertical">
+                <!--<StackPanel Orientation="Horizontal">-->
+                <Button Margin="0,5,5,0" Click="AddLaptop" Width="100" Height="30">
+                    Add Laptop
+                </Button>
+                <Button Margin="0,5,5,0" Click="EditLaptop" Width="100" Height="30">
+                    Edit Laptop
+                </Button>
+                <Button Margin="0,5,5,0" Click="RemoveLaptop" Width="100" Height="30">
+                    Remove Laptop
+                </Button>
+            </StackPanel>
+            <!--<StackPanel Margin="5">
                     <TextBlock>
         <Run Text="GUID: " FontWeight="Bold"/>
         <Run Text="{Binding LaptopGUID}"/>
@@ -75,8 +75,12 @@
         <Run Text="Storage (GB): " FontWeight="Bold"/>
         <Run Text="{Binding LaptopStorageInGB}"/>
                     </TextBlock>
-                </StackPanel>
-            </StackPanel>
+                    <TextBlock>
+        <Run Text="Producer: " FontWeight="Bold"/>
+        <Run Text="{Binding LaptopProducer}"/>
+                    </TextBlock>
+                </StackPanel>-->
+            <!--</StackPanel>-->
 
         </StackPanel>
 
@@ -115,18 +119,34 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-            
+
         </ListView>
 
         <!-- Producer Information -->
         <StackPanel Grid.Row="2" Margin="10">
-            <TextBlock FontWeight="Bold" FontSize="16" Margin="0,0,0,10">Producer Information</TextBlock>
-            <!-- UI elements for Producer information here -->
-            <TextBlock>Name:</TextBlock>
-            <TextBox Name="producerName" MinWidth="200" Margin="0,0,0,10"/>
+            <!-- ListView for Producers -->
+            <ListView Grid.Row="1" Margin="10" Name="ProducerList" SelectionChanged="ProducerList_SelectionChanged"
+          ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding ElementName=Window, Path=ProducerLVM.Producers}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ProducerName}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Description">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ProducerDescription}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-            <TextBlock>Description:</TextBlock>
-            <TextBox Name="producerDescription" MinWidth="200" Margin="0,0,0,10"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
             <Button Content="Add Producer" Click="AddProducer" Width="100" Height="30" Margin="0,10,0,0"/>
             <Button Content="Edit Producer" Click="EditProducer" Width="100" Height="30" Margin="0,5,0,0"/>

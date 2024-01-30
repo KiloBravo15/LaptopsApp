@@ -135,5 +135,9 @@ namespace Buchnat.LaptopsApp.DAOSQL
         {
             return (IProducer)Producers.Where(producer => producer.Id.Equals(id)).FirstOrDefault();
         }
+        public IProducer GetProducer(string name)
+        {
+            return (IProducer)Producers.Where(producer => producer.Name.Equals(name)).FirstOrDefault();
+        }
     }
 }

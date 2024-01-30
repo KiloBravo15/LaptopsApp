@@ -18,5 +18,6 @@ namespace Buchnat.LaptopsApp.Interfaces
         void RemoveProducer(Guid id);
         ILaptop GetLaptop(Guid id);
         IProducer GetProducer(Guid id);
+        IProducer GetProducer(string name);
     }
 }

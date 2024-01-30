@@ -101,6 +101,9 @@ namespace Buchnat.LaptopsApp.DAOMock2
             }
             producers.Add(producer);
         }
-
+        public IProducer GetProducer(string name)
+        {
+            return (IProducer)producers.Where(producer => producer.Name.Equals(name)).FirstOrDefault();
+        }
     }
 }
