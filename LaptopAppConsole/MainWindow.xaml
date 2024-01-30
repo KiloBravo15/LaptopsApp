@@ -19,12 +19,6 @@
             <!-- Data Source, Filter, and Search for Laptops -->
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5" Padding="4">Data source:</TextBlock>
-                    <Button Content="Choose a file" Click="ChooseLaptopDataSourceFile_Click" Margin="5" Padding="4"/>
-                    <Label Content="{Binding LaptopDataSourceFile}" Margin="5" Padding="4"/>
-                    <Button Content="Apply" Click="ApplyLaptopDataSource_Click" Margin="5" Padding="4"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
                     <!--<StackPanel Orientation="Horizontal">
                         <TextBlock Margin="5" Padding="4">Filter by:</TextBlock>
                         <ComboBox Margin="5" Padding="4" Name="laptopFilterTypeComboBox" MinWidth="100">
@@ -121,10 +115,7 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-            <TextBox Name="ModelNameColumnWidth" Visibility="Collapsed" Text="150" />
-            <TextBox Name="ProcessorTypeColumnWidth" Visibility="Collapsed" Text="150" />
-            <TextBox Name="RAMColumnWidth" Visibility="Collapsed" Text="150" />
-            <TextBox Name="StorageGBColumnWidth" Visibility="Collapsed" Text="150" />
+            
         </ListView>
 
         <!-- Producer Information -->
@@ -132,14 +123,14 @@
             <TextBlock FontWeight="Bold" FontSize="16" Margin="0,0,0,10">Producer Information</TextBlock>
             <!-- UI elements for Producer information here -->
             <TextBlock>Name:</TextBlock>
-            <TextBox Name="producerNameTextBox" MinWidth="200" Margin="0,0,0,10"/>
+            <TextBox Name="producerName" MinWidth="200" Margin="0,0,0,10"/>
 
             <TextBlock>Description:</TextBlock>
-            <TextBox Name="producerDescriptionTextBox" MinWidth="200" Margin="0,0,0,10"/>
+            <TextBox Name="producerDescription" MinWidth="200" Margin="0,0,0,10"/>
 
-            <Button Content="Add Producer" Click="AddProducerButton_Click" Width="100" Height="30" Margin="0,10,0,0"/>
-            <Button Content="Edit Producer" Click="EditProducerButton_Click" Width="100" Height="30" Margin="0,5,0,0"/>
-            <Button Content="Remove Producer" Click="RemoveProducerButton_Click" Width="100" Height="30" Margin="0,5,0,0"/>
+            <Button Content="Add Producer" Click="AddProducer" Width="100" Height="30" Margin="0,10,0,0"/>
+            <Button Content="Edit Producer" Click="EditProducer" Width="100" Height="30" Margin="0,5,0,0"/>
+            <Button Content="Remove Producer" Click="RemoveProducer" Width="100" Height="30" Margin="0,5,0,0"/>
         </StackPanel>
     </Grid>
 </Window>

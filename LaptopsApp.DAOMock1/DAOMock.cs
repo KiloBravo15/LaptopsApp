@@ -42,7 +42,11 @@ namespace Buchnat.LaptopsApp.DAOMock1
 
         public ILaptop CreateNewLaptop(ILaptop laptop)
         {
-            throw new NotImplementedException();
+            if (laptop == null)
+                throw new ArgumentNullException(nameof(laptop));
+
+            laptops.Add(laptop);
+            return laptop;
         }
 
         public IProducer CreateNewProducer()
@@ -52,18 +56,12 @@ namespace Buchnat.LaptopsApp.DAOMock1
 
         public IProducer CreateNewProducer(IProducer producer)
         {
-            throw new NotImplementedException();
+            if (producer == null)
+                throw new ArgumentNullException(nameof(producer));
+
+            producers.Add(producer);
+            return producer;
         }
-
-        //       public void DeleteLaptop(int id)
-        //     {
-        //       throw new NotImplementedException();
-        // }
-
-        //        public void DeleteProducer(int id)
-        //      {
-        //        throw new NotImplementedException();
-        //  }
 
         public IEnumerable<ILaptop> GetAllLaptops()
         {
@@ -77,64 +75,43 @@ namespace Buchnat.LaptopsApp.DAOMock1
 
         public ILaptop GetLaptop(Guid id)
         {
-            throw new NotImplementedException();
+            return laptops.FirstOrDefault(l => l.Id == id);
         }
 
         public IProducer GetProducer(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveLaptop(int id)
-        {
-            throw new NotImplementedException();
+            return producers.FirstOrDefault(p => p.Id == id);
         }
 
         public void RemoveLaptop(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveProducer(int id)
-        {
-            throw new NotImplementedException();
+            laptops.RemoveAll(l => l.Id == id);
         }
 
         public void RemoveProducer(Guid id)
         {
-            throw new NotImplementedException();
+            producers.RemoveAll(p => p.Id == id);
         }
 
         public void UpdateLaptop(ILaptop laptop)
         {
-            throw new NotImplementedException();
+            var existing = GetLaptop(laptop.Id);
+            if (existing != null)
+            {
+                laptops.Remove(existing);
+            }
+            laptops.Add(laptop);
         }
 
         public void UpdateProducer(IProducer producer)
         {
-            throw new NotImplementedException();
+            var existing = GetProducer(producer.Id);
+            if (existing != null)
+            {
+                producers.Remove(existing);
+            }
+            producers.Add(producer);
         }
 
-        //    public ILaptop GetLaptopById(int id)
-        //      {
-        //            throw new NotImplementedException();
-        //}
-
-        //  public IProducer GetProducerById(int id)
-        //    {
-        //          throw new NotImplementedException();
-        //        }
-
-        //    public void UpdateLaptop(ILaptop laptop)
-        //      {
-        //            throw new NotImplementedException();
-        //        }
-
-        //        public void UpdateProducer(IProducer producer)
-        //    {
-        //      throw new NotImplementedException();
-        //      }
-        //    }
-        //}
     }
 }

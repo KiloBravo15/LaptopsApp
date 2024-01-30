@@ -18,6 +18,8 @@ using Microsoft.Win32;
 using System.ComponentModel;
 using System.IO;
 using Buchnat.LaptopsApp.DAOSQL;
+using System.Configuration;
+using Buchnat.LaptopsApp.Models;
 
 namespace Buchnat.LaptopsApp
 {
@@ -39,13 +41,12 @@ namespace Buchnat.LaptopsApp
         {
             InitializeComponent();
             DataContext = this;
-            if (File.Exists(LaptopDataSourceFile))
-            {
-                blc = new BL.BLC(LaptopDataSourceFile);
 
-                LaptopLVM.RefreshList(blc.GetLaptops().Distinct());
-                ProducerLVM.RefreshList(blc.GetProducers());
-            }
+            blc = new BL.BLC(ConfigurationManager.AppSettings["DAOLibraryName"]);
+
+            LaptopLVM.RefreshList(blc.GetLaptops().Distinct());
+            ProducerLVM.RefreshList(blc.GetProducers());
+
         }
 
         private void LaptopList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,13 +62,13 @@ namespace Buchnat.LaptopsApp
             if (selectedLaptop != null)
             {
                 LaptopDialog laptopEditDialog = new(
-                    blc.GetProducers().Select(x=>x.Name),
+                    blc.GetProducers().Select(x => x.Name),
                     blc.GetLaptopById(selectedLaptop.LaptopGUID)
                 );
 
                 if (laptopEditDialog.ShowDialog() == true)
                 {
-                    blc.CreateOrUpdateLaptop(new Laptop()
+                    blc.CreateOrUpdateLaptop(new Models.Laptop()
                     {
                         Id = selectedLaptop.LaptopGUID,
                         Model = laptopEditDialog.LaptopModel,
@@ -103,15 +104,15 @@ namespace Buchnat.LaptopsApp
 
         private void AddLaptop(object sender, RoutedEventArgs e)
         {
-            var allProducersNames = blc.GetProducers().Select(x=> x.Name);
+            var allProducersNames = blc.GetProducers().Select(x => x.Name);
             LaptopDialog laptopInputDialog = new(allProducersNames);
 
             if (laptopInputDialog.ShowDialog() == true)
             {
-                Laptop laptop;
+                Models.Laptop laptop;
                 try
                 {
-                    laptop = new Laptop()
+                    laptop = new Models.Laptop()
                     {
                         Id = selectedLaptop.LaptopGUID,
                         Model = laptopInputDialog.LaptopModel,
@@ -128,6 +129,71 @@ namespace Buchnat.LaptopsApp
                 }
                 blc.CreateOrUpdateLaptop(laptop);
                 LaptopLVM.RefreshList(blc.GetLaptops());
+            }
+        }
+        private void AddProducer(object sender, RoutedEventArgs e)
+        {
+            ProducerDialog producerDialog = new();
+
+            if (producerDialog.ShowDialog() == true)
+            {
+                Producer producer;
+                try
+                {
+                    producer = new Producer()
+                    {
+                        Name = producerDialog.ProducerName,
+                        Description = producerDialog.ProducerDescription
+                    };
+                }
+                catch
+                {
+                    MessageBox.Show("Error occurred, check your input values!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                blc.CreateOrUpdateProducer(producer);
+                ProducerLVM.RefreshList(blc.GetProducers());
+            }
+        }
+
+        private void RemoveProducer(object sender, RoutedEventArgs e)
+        {
+            if (selectedProducer != null)
+            {
+                blc.RemoveProducer(selectedProducer.ProducerGUID);
+                ProducerLVM.RefreshList(blc.GetProducers());
+                selectedProducer = null;
+            }
+            else
+            {
+                MessageBox.Show("Producer is not selected!");
+            }
+        }
+
+        private void EditProducer(object sender, RoutedEventArgs e)
+        {
+            if (selectedProducer != null)
+            {
+                ProducerDialog producerDialog = new(
+                    blc.GetProducer(selectedProducer.ProducerGUID)
+                );
+
+                if (producerDialog.ShowDialog() == true)
+                {
+                    blc.CreateOrUpdateProducer(new Producer()
+                    {
+                        Id = selectedProducer.ProducerGUID,
+                        Name = producerDialog.ProducerName,
+                        Description = producerDialog.ProducerDescription
+                    });
+
+                    ProducerLVM.RefreshList(blc.GetProducers());
+                    ChangeSelectedProducer(null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Producer is not selected!");
             }
         }
 
@@ -150,16 +216,6 @@ namespace Buchnat.LaptopsApp
 
         #endregion
 
-        private string _laptopDataSourceFile = "Buchnat.LaptopsApp.DAOMock1.dll";
-        public string LaptopDataSourceFile
-        {
-            get { return _laptopDataSourceFile; }
-            set
-            {
-                _laptopDataSourceFile = value;
-                OnPropertyChanged(nameof(LaptopDataSourceFile));
-            }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
