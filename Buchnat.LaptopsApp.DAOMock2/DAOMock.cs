@@ -10,15 +10,15 @@ namespace Buchnat.LaptopsApp.DAOMock2
         {
             producers = new List<IProducer>()
             {
-                new BO.Producer() {Id = 1, Name = "Huawei"},
-                new BO.Producer() {Id = 2, Name = "LG"}
+                new BO.Producer() {Id = Guid.NewGuid(), Name = "Huawei"},
+                new BO.Producer() {Id = Guid.NewGuid(), Name = "LG"}
             };
             laptops = new List<ILaptop>()
             {
-                new BO.Laptop() {Id = 1, Producer = producers[0], Model =  "MateBook D 16", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512 },
-                new BO.Laptop() {Id = 2, Producer = producers[0], Model = "MateBook 16", Processor = Core.ProcessorType.AMD, RAM = 16, StorageInGB = 512 },
-                new BO.Laptop() {Id = 3, Producer = producers[1], Model = "Gram 2023", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512},
-                new BO.Laptop() {Id = 4, Producer = producers[1], Model = "Gram 2021", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512}
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[0], Model =  "MateBook D 16", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512 },
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[0], Model = "MateBook 16", Processor = Core.ProcessorType.AMD, RAM = 16, StorageInGB = 512 },
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[1], Model = "Gram 2023", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512},
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[1], Model = "Gram 2021", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512}
             };
         }
 
@@ -64,12 +64,32 @@ namespace Buchnat.LaptopsApp.DAOMock2
             return producers;
         }
 
+        public ILaptop GetLaptop(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IProducer GetProducer(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveLaptop(int id)
         {
             throw new NotImplementedException();
         }
 
+        public void RemoveLaptop(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveProducer(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveProducer(Guid id)
         {
             throw new NotImplementedException();
         }

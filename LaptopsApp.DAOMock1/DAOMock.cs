@@ -15,21 +15,21 @@ namespace Buchnat.LaptopsApp.DAOMock1
         {
             producers = new List<IProducer>()
             {
-                new BO.Producer() {Id = 1, Name = "Lenovo"},
-                new BO.Producer() {Id = 2, Name = "Dell"},
-                new BO.Producer() {Id = 3, Name = "HP"},
-                new BO.Producer() {Id = 4, Name = "Apple"}
+                new BO.Producer() {Id = Guid.NewGuid(), Name = "Lenovo"},
+                new BO.Producer() {Id = Guid.NewGuid(), Name = "Dell"},
+                new BO.Producer() {Id = Guid.NewGuid(), Name = "HP"},
+                new BO.Producer() {Id = Guid.NewGuid(), Name = "Apple"}
             };
             laptops = new List<ILaptop>()
             {
-                new BO.Laptop() {Id = 1, Producer = producers[0], Model =  "IdeaPad Slim 3", Processor = Core.ProcessorType.Intel, RAM = 8, StorageInGB = 512 },
-                new BO.Laptop() {Id = 2, Producer = producers[0], Model = "Legion Slim 5", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512 },
-                new BO.Laptop() {Id = 3, Producer = producers[1], Model = " Inspiron 14 Plus", Processor = Core.ProcessorType.Intel, RAM = 32, StorageInGB = 1000},
-                new BO.Laptop() {Id = 3, Producer = producers[1], Model = " Alienware x17", Processor = Core.ProcessorType.Intel, RAM = 64, StorageInGB = 1000},
-                new BO.Laptop() {Id = 3, Producer = producers[2], Model = " Envy x360", Processor = Core.ProcessorType.AMD, RAM = 16, StorageInGB = 512},
-                new BO.Laptop() {Id = 3, Producer = producers[2], Model = " Omen 16", Processor = Core.ProcessorType.AMD, RAM = 32, StorageInGB = 1000},
-                new BO.Laptop() {Id = 3, Producer = producers[3], Model = " MacBook Air 13.3", Processor = Core.ProcessorType.Apple, RAM = 8, StorageInGB = 256},
-                new BO.Laptop() {Id = 3, Producer = producers[3], Model = " MacBook Pro", Processor = Core.ProcessorType.Apple, RAM = 18, StorageInGB = 512}
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[0], Model =  "IdeaPad Slim 3", Processor = Core.ProcessorType.Intel, RAM = 8, StorageInGB = 512 },
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[0], Model = "Legion Slim 5", Processor = Core.ProcessorType.Intel, RAM = 16, StorageInGB = 512 },
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[1], Model = " Inspiron 14 Plus", Processor = Core.ProcessorType.Intel, RAM = 32, StorageInGB = 1000},
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[1], Model = " Alienware x17", Processor = Core.ProcessorType.Intel, RAM = 64, StorageInGB = 1000},
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[2], Model = " Envy x360", Processor = Core.ProcessorType.AMD, RAM = 16, StorageInGB = 512},
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[2], Model = " Omen 16", Processor = Core.ProcessorType.AMD, RAM = 32, StorageInGB = 1000},
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[3], Model = " MacBook Air 13.3", Processor = Core.ProcessorType.Apple, RAM = 8, StorageInGB = 256},
+                new BO.Laptop() {Id = Guid.NewGuid(), Producer = producers[3], Model = " MacBook Pro", Processor = Core.ProcessorType.Apple, RAM = 18, StorageInGB = 512}
             };
         }
 
@@ -75,12 +75,32 @@ namespace Buchnat.LaptopsApp.DAOMock1
             return producers;
         }
 
+        public ILaptop GetLaptop(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IProducer GetProducer(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveLaptop(int id)
         {
             throw new NotImplementedException();
         }
 
+        public void RemoveLaptop(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveProducer(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveProducer(Guid id)
         {
             throw new NotImplementedException();
         }

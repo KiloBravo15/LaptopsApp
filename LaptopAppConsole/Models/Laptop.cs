@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Buchnat.LaptopsApp.DAOMock2.BO
+namespace Buchnat.LaptopsApp.Models
 {
     public class Laptop : ILaptop
     {
-        public Guid Id {  get; set; }
+        public Guid Id { get; set; }
         public IProducer Producer { get; set; }
         public string Model { get; set; }
         public ProcessorType Processor { get; set; }
