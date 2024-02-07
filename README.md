@@ -1,5 +1,6 @@
 # LaptopsApp
 Aplikacja stworzona na potrzeby zaliczenia przedmiotu "Programowanie Wizualne" 
+
 1 WYMAGANIA OGÓLNE
 1.1 Projekty dotyczą implementacji katalogu produktów, przy czym każdy indywidualnie
 wybiera sobie produkty. Jako przykład mogą posłużyć samochody. Jest wielu producentów,
